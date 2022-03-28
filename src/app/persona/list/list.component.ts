@@ -9,7 +9,7 @@ import { ServiceService } from '../../service/service.service'
   styleUrls: ['./list.component.css']
 })
 export class ListComponent implements OnInit {
-  personas!: Persona[];
+  personas: Persona[] = [];
 
   constructor(private service: ServiceService, private router: Router) { }
 
@@ -20,4 +20,8 @@ export class ListComponent implements OnInit {
     })
   }
 
+  Editar(persona: Persona): void{
+    localStorage.setItem("id", persona.id.toString());
+    this.router.navigate(["editar"]);
+  }
 }
