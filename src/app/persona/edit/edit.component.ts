@@ -27,4 +27,13 @@ export class EditComponent implements OnInit {
       })
     }
   }
+
+  Actualizar(persona: Persona){
+    this.service.updatePersona(persona)
+    .subscribe(data =>{
+    this.modelPersona = data;
+    alert("Se actualizó con éxito ..!!!");
+    this.router.navigate(["listar"]);
+    })
+  }
 }
